@@ -1,39 +1,103 @@
-.App {
-  text-align: center;
+.theme__games {
+  color: white;
+}
+.theme__box {
+  background: white;
+  border-radius: 15px;
+  width: 100%;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+.image {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+.padding {
+  padding-left: 7.5px;
+  padding-right: 7.5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
-
-.App-header {
-  min-height: 100vh;
+.theme__row {
   display: flex;
+  flex-wrap: row wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+  row-gap: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 210, 217, 0.08235294117647059);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 9999px;
+}
+
+.figure {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: 0 0 5px #ddd;
+}
+.figure__caption p {
+  cursor: pointer;
+  padding-left: 10px;
+  font-size: 25px;
+  color: gray;
+  position: absolute;
+  bottom: 0;
+}
+
+.figure img {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+
+.figure:hover img {
+  -webkit-transform: scale3d(1.2, 1.2, 1);
+  transform: scale3d(1.2, 1.2, 1);
+}
+
+.theme__footer h1 {
+  color: white;
+}
+.theme__footer span,
+p {
+  color: #c6cfd6;
+  font-size: 12px;
+}
+
+.theme__special-card {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
   flex-direction: column;
-  align-items: center;
+  row-gap: 10px;
+  border: 1px solid #2f3a41;
+  border-color: #2f3a41;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.theme__special-card span {
+  color: #bbc4ca;
+  font-size: 15px;
+}
+
+.card__design {
+  background: #58f47b;
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  margin: auto;
+  display: grid;
+  align-content: space-around;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
 }
