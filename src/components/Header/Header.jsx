@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import {FaUser} from 'react-icons/fa'
+import './header.module.css'
 
 function Header() {
   return (
@@ -42,37 +43,41 @@ function Header() {
         <Navbar.Toggle aria-controls='navbarScroll' />
         <Navbar.Collapse id='navbarScroll'>
           <Nav
-            className='me-auto my-2 my-lg-0'
+            className='mx-auto my-2 my-lg-0'
             style={{maxHeight: '100px'}}
             navbarScroll
           >
             <Nav.Link href='#action1' className='d-flex align-items-center'>
               <Link to='/'>
                 <FaUser className='mx-2' />
-                HomePage
+                <span className='theme__nav'>HomePage</span>
               </Link>
             </Nav.Link>
             <Nav.Link href='#action2' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
-              CoinFlip
+              <span className='theme__nav'>CoinFlip</span>
+
             </Nav.Link>
 
             <Nav.Link className='d-flex align-items-center'>
               <Link to='/dice'>
                 <FaUser className='mx-2' />
-                Dice
+                <span className='theme__nav'>Dice</span>
+                
               </Link>
             </Nav.Link>
-            <Nav.Link href='#action4' className='d-flex align-items-center'>
+            <Nav.Link href='/' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
-              Profile
+              <span className='theme__nav'>Profile</span>
+              
             </Nav.Link>
             <Nav.Link href='#action5' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
-              Settings
+              <span className='theme__nav'>Settings</span>
+              
             </Nav.Link>
           </Nav>
-          <Button variant='outline-success'>Connect Wallet</Button>
+          <Button className='btn' variant='outline-success'>Connect Wallet</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

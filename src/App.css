@@ -101,3 +101,51 @@ p {
   align-content: space-around;
   justify-content: center;
 }
+
+.btn{
+  background-color: transparent !important;
+  font-size: 15px;
+  opacity: 1;
+  color: #c6cfd6 !important;
+  border-color: #c6cfd6 !important;
+}
+.btn:hover{
+  opacity: 0.7;
+}
+.btn:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.theme__nav{
+  color: #c6cfd6 !important;
+  text-decoration: none !important;
+}
+.nav-link a{
+  color: #c6cfd6 !important;
+  text-decoration: none !important;
+}
+.theme__sponsor{
+  margin-top: 30px;
+  width: 100%;
+  border-top: 1px solid #c6cfd6;
+  border-bottom: 1px solid #c6cfd6;
+}
+.theme__sponsor svg{
+  opacity: 1;
+}
+.theme__sponsor svg:hover{
+  opacity: .7;
+}
+
+
+.container-fluid{
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .theme__sponsor svg{
+    width:100px !important;
+  }
+}

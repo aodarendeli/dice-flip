@@ -6,7 +6,7 @@ import {FaUser} from 'react-icons/fa'
 function Tables() {
   return (
     <Container fluid>
-      <Row>
+      <Row className='table-responsive py-3'>
         <Col className='pt-3' style={{color: 'white'}}>
           <h1>Live Bets</h1>
           <Table striped bordered hover variant='dark'>
