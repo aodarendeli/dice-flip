@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './coin.css'
 import CoinIcon from '../../svg/CoinIcon'
+import Col from 'react-bootstrap/Col'
 
 export default ({state, theChoice, ind, flipping}) => {
   const [result, setResult] = useState({res: 'heads', refresh: 'initial'})
@@ -32,11 +33,9 @@ export default ({state, theChoice, ind, flipping}) => {
           <p className='coinT'>H</p>
         </div>
       </div>
-      <div className='d-flex mt-2 justify-content-between amountValue ms-2'>
-            <div className='amountReduce mx-2'>1</div>
-            <div className='amountReduce mx-2'>2</div>
-      </div>
-        {/* <p
+      <div className='d-flex mt-2 justify-content-between amountValue ms-2' >
+            <div className='amountReduce mx-2'>
+           <p
           className={selected === 'H' ? 'choiceSelected' : 'choiceUnselected'}
           onClick={() => {
             setSelected('H')
@@ -46,7 +45,9 @@ export default ({state, theChoice, ind, flipping}) => {
         >
           H
         </p>
-        <p
+            </div>
+            <div className='amountReduce mx-2'>
+            <p
           className={selected === 'T' ? 'choiceSelected' : 'choiceUnselected'}
           onClick={() => {
             setSelected('T')
@@ -55,7 +56,10 @@ export default ({state, theChoice, ind, flipping}) => {
           }}
         >
           T
-        </p> */}
+        </p> 
+            </div>
+      </div>
     </div>
+
   )
 }

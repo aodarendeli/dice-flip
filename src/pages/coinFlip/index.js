@@ -19,6 +19,7 @@ export default () => {
   const [winAmountValue, setWinAmountValue] = useState(0)
   const [pendingValue, setPendingValue] = useState(0)
   const [multiplierValue, setMultiplierValue] = useState(0)
+  const [betState, setBetState] = useState(false)
 
   const [coinNum, setCoinNum] = useState([{res: '', refresh: 'initial'}])
   const [userChoices, setUserChoices] = useState([
@@ -135,7 +136,7 @@ export default () => {
   }, [userChoices])
 
   return (
-  <div className={c.con}>
+  <div className={c.con + ' pt-5 mt-5'}>
       <div className={c.gameCon}>
         <div className={c.mobileDice}>
           <div className='d-flex row mx-auto'>
@@ -272,15 +273,15 @@ export default () => {
             <div className={c.amountReduce}>x2</div>
             <div className={c.amountReduce}>Max</div>
           </div>
-          {/* {!betState ? (
-            <div className={c.btnDice + ' mt-5'} onClick={handleRoll}>
+          {!betState ? (
+            <div className={c.btnDice + ' mt-5'} >
               Bet
             </div>
           ) : (
-            <div className={c.btnDice + ' mt-5'} onClick={handleGoBack}>
+            <div className={c.btnDice + ' mt-5'} >
               Back
             </div>
-          )} */}
+          )}
         </div>
 
         <div className={c.gameRight}>
@@ -290,7 +291,7 @@ export default () => {
             </div>
           </div>
           <div className={c.gameRightMid}>
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-between '>
             {coinNum.map((item, index) => {
               return (
                 <>
@@ -309,15 +310,15 @@ export default () => {
          </div> 
           </div>
           <div className={c.mobileBtnDice}>
-            {/* {!betState ? (
-              <div className={c.mobileBtnDice + ' mt-5'} onClick={handleRoll}>
+            {!betState ? (
+              <div className={c.mobileBtnDice + ' mt-5'}>
                 Bet
               </div>
             ) : (
-              <div className={c.mobileBtnDice + ' mt-5'} onClick={handleGoBack}>
+              <div className={c.mobileBtnDice + ' mt-5'}>
                 Back
               </div>
-            )} */}
+            )}
           </div>
 
           <div className='d-flex pt-3 w-100'>
@@ -337,22 +338,5 @@ export default () => {
         </div>
       </div>
     </div>
-
-      /* <div className='deneme' onClick={() => handleNumberOfCoins(1)}>
-        1
-      </div>
-      <div className='deneme' onClick={() => handleNumberOfCoins(2)}>
-        2
-      </div>
-      <div className='deneme' onClick={() => handleNumberOfCoins(3)}>
-        3
-      </div>
-      <div className='deneme' onClick={() => handleNumberOfCoins(4)}>
-        4
-      </div>
-      <div className='deneme' onClick={!flipping && handleFlip}>
-        Flip
-      </div>*/
-      
   )
 }
