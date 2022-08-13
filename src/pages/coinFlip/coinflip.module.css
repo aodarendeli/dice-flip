@@ -28,7 +28,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width:300px;
+  width: 300px;
 }
 .diceResCon {
   display: flex;
@@ -143,8 +143,8 @@
 }
 .amountReduce {
   padding: 7px;
-  background-color: #151A1E;
-  border :1px solid #2f3a42;
+  background-color: #151a1e;
+  border: 1px solid #2f3a42;
   border-radius: 10px;
   opacity: 1;
   color: white;
@@ -152,7 +152,6 @@
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;
-
 }
 .amounTotal {
   color: white;
@@ -185,32 +184,32 @@
 .amountReduce:hover {
   background-color: #2f3a42;
 }
-.conRow1{
+.conRow1 {
   display: flex;
   flex-direction: row;
 }
-.conRow2{
+.conRow2 {
   display: flex;
   flex-direction: row;
 }
-.rowsCon{
+.rowsCon {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.rowsConMobile{
+.rowsConMobile {
   display: none;
 }
-.rowsConDesktop{
+.rowsConDesktop {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 @media (max-width: 992px) {
-  .rowsConDesktop{
+  .rowsConDesktop {
     display: none;
   }
-  .rowsConMobile{
+  .rowsConMobile {
     display: flex;
     flex-direction: column;
   }
@@ -256,19 +255,17 @@
     cursor: pointer;
     color: #fff;
   }
- 
 
   .pendingCon {
     display: none;
   }
-  .fix{
+  .fix {
     flex-direction: column;
   }
- .mobilecoin{
-  align-self: center;
-  width: min-content;
- }
-
+  .mobilecoin {
+    align-self: center;
+    width: min-content;
+  }
 }
 @media (min-width: 993px) {
   .mobileDice {

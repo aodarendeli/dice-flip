@@ -21,10 +21,13 @@ export default ({state, theChoice, ind, flipping}) => {
   return (
     <div className='coinCon mx-auto'>
       <p>{`Coin ${ind + 1}`}</p>
-      <p>{result.res}</p>
       <div id='coin' className={result.res}>
         <div className='side-a mx-auto'>
-          <img className="mx-auto" alt='coin' src={require('../../assets/images/coin.png')} />
+          <img
+            className='mx-auto'
+            alt='coin'
+            src={require('../../assets/images/coin.png')}
+          />
           <p className='coinT'>T</p>
         </div>
         <div className='side-b'>
@@ -33,33 +36,32 @@ export default ({state, theChoice, ind, flipping}) => {
           <p className='coinT'>H</p>
         </div>
       </div>
-      <div className='d-flex mt-2 justify-content-between amountValue ms-2' >
-            <div className='amountReduce mx-2'>
-           <p
-          className={selected === 'H' ? 'choiceSelected' : 'choiceUnselected'}
-          onClick={() => {
-            setSelected('H')
-            setResult({res: 'heads'})
-            theChoice({coinInd: ind, res: 'heads'})
-          }}
-        >
-          H
-        </p>
-            </div>
-            <div className='amountReduce mx-2'>
-            <p
-          className={selected === 'T' ? 'choiceSelected' : 'choiceUnselected'}
-          onClick={() => {
-            setSelected('T')
-            setResult({res: 'tails'})
-            theChoice({coinInd: ind, res: 'tails'})
-          }}
-        >
-          T
-        </p> 
-            </div>
+      <div className='d-flex mt-2 justify-content-between amountValue ms-2'>
+        <div className={selected === 'H' ? 'amountReduce mx-2' : 'amountReduceUnselect mx-2'}>
+          <p
+            className={selected === 'H'?'choiceSelected':'choiceUnselected'}
+            onClick={() => {
+              setSelected('H')
+              setResult({res: 'heads'})
+              theChoice({coinInd: ind, res: 'heads'})
+            }}
+          >
+            H
+          </p>
+        </div>
+        <div className={selected === 'T' ? 'amountReduce mx-2' : 'amountReduceUnselect mx-2'}>
+          <p
+            className={selected === 'T'?'choiceSelected':'choiceUnselected'}
+            onClick={() => {
+              setSelected('T')
+              setResult({res: 'tails'})
+              theChoice({coinInd: ind, res: 'tails'})
+            }}
+          >
+            T
+          </p>
+        </div>
       </div>
     </div>
-
   )
 }

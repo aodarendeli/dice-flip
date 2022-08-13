@@ -83,29 +83,27 @@ export default () => {
       }
       console.log(choices)
 
-      let ff = [...result]
+      let check = [...result]
       // debugger
-      for (let i = 0; i < ff.length; i++) {
-        if (ff[i].res !== choices[i]) {
-          console.log('lose')
-        } else {
-          console.log('win')
+      let status
+      for (let i = 0; i < check.length; i++) {
+        if (check[i].res !== choices[i]) {
+          status='lose'
         }
       }
-      console.log(choices)
+      setTimeout(() => {
+        if(status==='lose'){
+          let msg=` re`
+          dispatch(setErrorModal({title:'YOU LOSE',message:`You choose the wrong order! \n Order is ${result.map((ans)=>`${ans.res} `)} But your choice was: ${choices.map((ans)=>`${ans} `)}`,button:'Close'}))
+        }else{
+          dispatch(setSuccessModal({title:'YOU WIN',message:'You picked right order :)',button:'Close'}))
+        }
+      }, 2200);
     }, 500)
-    dispatch(
-      setSuccessModal({
-        title: 'Kazandınız',
-        message: 'helallan amına goduum',
-        button: 'TamamKes',
-        cancel: 'vazgeç',
-      })
-    )
 
     setTimeout(() => {
       setFlipping(false)
-    }, 5000)
+    }, 2000)
   }
   // useEffect(() => {
   //   handleChoices
@@ -134,27 +132,52 @@ export default () => {
   useEffect(() => {
     console.log(userChoices)
   }, [userChoices])
-
+  const handleBet=()=>{
+    setBetState(true)
+    handleFlip()
+  }
+  const handleBack=()=>{
+    setBetState(false)
+  }
   return (
-  <div className={c.con + ' pt-5 mt-5'}>
+    <div className={c.con + ' pt-5 mt-5'}>
       <div className={c.gameCon}>
         <div className={c.mobileDice}>
-          <div className={c.fix + " " +c.mobilecoin +' d-flex'}>
-
-        <div className={c.field +  ' mt-3'}>
-            {/* <Fas /> */}
-            <p className={c.title }>Coins</p>
-          </div>
-        <div
-            className={
-              c.amountValue + ' text-center mt-2 justify-content-between'
-            }
-          >
-            <div  onClick={() => handleNumberOfCoins(1)} className={c.amountReduce + ' mx-2'}>1</div>
-            <div   onClick={() => handleNumberOfCoins(2)}className={c.amountReduce + ' mx-2'}>2</div>
-            <div   onClick={() => handleNumberOfCoins(3)}className={c.amountReduce + ' mx-2'}>3</div>
-            <div   onClick={() => handleNumberOfCoins(4)}className={c.amountReduce + ' mx-2'}>4</div>
-          </div>
+          <div className={c.fix + ' ' + c.mobilecoin + ' d-flex'}>
+            <div className={c.field + ' mt-3'}>
+              {/* <Fas /> */}
+              <p className={c.title}>Coins</p>
+            </div>
+            <div
+              className={
+                c.amountValue + ' text-center mt-2 justify-content-between'
+              }
+            >
+              <div
+                onClick={() => handleNumberOfCoins(1)}
+                className={c.amountReduce + ' mx-2'}
+              >
+                1
+              </div>
+              <div
+                onClick={() => handleNumberOfCoins(2)}
+                className={c.amountReduce + ' mx-2'}
+              >
+                2
+              </div>
+              <div
+                onClick={() => handleNumberOfCoins(3)}
+                className={c.amountReduce + ' mx-2'}
+              >
+                3
+              </div>
+              <div
+                onClick={() => handleNumberOfCoins(4)}
+                className={c.amountReduce + ' mx-2'}
+              >
+                4
+              </div>
+            </div>
           </div>
 
           <div className={c.mobilecoin + ' d-flex row'}>
@@ -268,10 +291,30 @@ export default () => {
               c.amountValue + ' text-center mt-2 justify-content-between'
             }
           >
-            <div  onClick={() => handleNumberOfCoins(1)} className={c.amountReduce + ' mx-2'}>1</div>
-            <div   onClick={() => handleNumberOfCoins(2)}className={c.amountReduce + ' mx-2'}>2</div>
-            <div   onClick={() => handleNumberOfCoins(3)}className={c.amountReduce + ' mx-2'}>3</div>
-            <div   onClick={() => handleNumberOfCoins(4)}className={c.amountReduce + ' mx-2'}>4</div>
+            <div
+              onClick={() => handleNumberOfCoins(1)}
+              className={c.amountReduce + ' mx-2'}
+            >
+              1
+            </div>
+            <div
+              onClick={() => handleNumberOfCoins(2)}
+              className={c.amountReduce + ' mx-2'}
+            >
+              2
+            </div>
+            <div
+              onClick={() => handleNumberOfCoins(3)}
+              className={c.amountReduce + ' mx-2'}
+            >
+              3
+            </div>
+            <div
+              onClick={() => handleNumberOfCoins(4)}
+              className={c.amountReduce + ' mx-2'}
+            >
+              4
+            </div>
           </div>
           <div className={c.field + ' mt-3'}>
             <Amount />
@@ -292,13 +335,9 @@ export default () => {
             <div className={c.amountReduce}>Max</div>
           </div>
           {!betState ? (
-            <div className={c.btnDice + ' mt-5'} >
-              Bet
-            </div>
+            <div className={c.btnDice + ' mt-5'} onClick={handleBet}>Bet</div>
           ) : (
-            <div className={c.btnDice + ' mt-5'} >
-              Back
-            </div>
+            <div className={c.btnDice + ' mt-5'} onClick={!flipping && handleBack}>Back</div>
           )}
         </div>
 
@@ -309,67 +348,63 @@ export default () => {
             </div>
           </div>
           <div className={c.gameRightMid}>
-          <div className={c.rowsConDesktop}>
-          {coinNum.map((item, index) => {
-                return (
-                    <Coin
-                      key={index}
-                      state={coinNum[index]}
-                      ind={index}
-                      flipping={flipping}
-                      theChoice={(val) => {
-                        handleChoices(val)
-                      }}
-                    />
-                )
-            })}
-          </div>
-          <div className={c.rowsConMobile}>
-          <div className={c.conRow1}>
-            {coinNum.map((item, index) => {
-              if(index < 2){
-                return (
-                    <Coin
-                      key={index}
-                      state={coinNum[index]}
-                      ind={index}
-                      flipping={flipping}
-                      theChoice={(val) => {
-                        handleChoices(val)
-                      }}
-                    />
-                )
-              }
-            })}
-                  </div>
-                  <div className={c.conRow2}>
+            <div className={c.rowsConDesktop}>
               {coinNum.map((item, index) => {
-              if(index > 1){
                 return (
-                    <Coin
-                      key={index}
-                      state={coinNum[index]}
-                      ind={index}
-                      flipping={flipping}
-                      theChoice={(val) => {
-                        handleChoices(val)
-                      }}
-                    />
+                  <Coin
+                    key={index}
+                    state={coinNum[index]}
+                    ind={index}
+                    flipping={flipping}
+                    theChoice={(val) => {
+                      handleChoices(val)
+                    }}
+                  />
                 )
-              }
-            })}
-                  </div>
-         </div> 
+              })}
+            </div>
+            <div className={c.rowsConMobile}>
+              <div className={c.conRow1}>
+                {coinNum.map((item, index) => {
+                  if (index < 2) {
+                    return (
+                      <Coin
+                        key={index}
+                        state={coinNum[index]}
+                        ind={index}
+                        flipping={flipping}
+                        theChoice={(val) => {
+                          handleChoices(val)
+                        }}
+                      />
+                    )
+                  }
+                })}
+              </div>
+              <div className={c.conRow2}>
+                {coinNum.map((item, index) => {
+                  if (index > 1) {
+                    return (
+                      <Coin
+                        key={index}
+                        state={coinNum[index]}
+                        ind={index}
+                        flipping={flipping}
+                        theChoice={(val) => {
+                          handleChoices(val)
+                        }}
+                      />
+                    )
+                  }
+                })}
+              </div>
+            </div>
           </div>
           <div className={c.mobileBtnDice}>
             {!betState ? (
-              <div className={c.mobileBtnDice + ' mt-5'}>
-                Bet
-              </div>
+              <div className={c.mobileBtnDice + ' mt-5'} onClick={handleBet}>Bet</div>
             ) : (
-              <div className={c.mobileBtnDice + ' mt-5'}>
-                Back
-              </div>
+              <div className={c.mobileBtnDice + ' mt-5'} onClick={!flipping && handleBack}>Back</div>
             )}
           </div>
 

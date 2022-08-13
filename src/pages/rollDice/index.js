@@ -9,9 +9,8 @@ import Trophy from '../../svg/Trophy'
 import Dropdown from 'react-bootstrap/Dropdown'
 import ReactDice from 'react-dice-complete'
 import 'react-dice-complete/dist/react-dice-complete.css'
-import { useDispatch } from 'react-redux'
-import {setDefaultModal,setWarningModal} from '../../Redux/Actions/element'
-
+import {useDispatch} from 'react-redux'
+import {setDefaultModal, setWarningModal} from '../../Redux/Actions/element'
 
 export default () => {
   const [pendingValue, setPendingValue] = useState(0)
@@ -23,13 +22,19 @@ export default () => {
   const [diceSelections, setDiceSelections] = useState([0, 0, 0, 0, 0, 0])
   const [presetValue, setSetPresetValue] = useState(5)
   const [showResult, setShowResult] = useState({state: false, winStatus: false})
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const diceRef = useRef(null)
   const handleRoll = (val) => {
     let arr = [...diceSelections]
     let res = arr.filter((dice) => dice === 0)
     if (res.length === 6) {
-     dispatch(setWarningModal({title:'Warning',message:'Please choice atleast 1 dice.',button:'OK'}))
+      dispatch(
+        setWarningModal({
+          title: 'Warning',
+          message: 'Please choice atleast 1 dice.',
+          button: 'OK',
+        })
+      )
       return
     }
     setShowResult({state: false, winStatus: false})
@@ -233,10 +238,12 @@ export default () => {
                   ref={diceRef}
                 />
                 {showResult.state ? (
-                  <div style={{color: '#fff',height:'30px'}}>
+                  <div style={{color: '#fff', height: '30px'}}>
                     {showResult.winStatus ? 'YOU WIN' : 'YOU LOSE'}
                   </div>
-                ):<div style={{height:'30px'}}/>}
+                ) : (
+                  <div style={{height: '30px'}} />
+                )}
               </div>
             )}
           </div>
