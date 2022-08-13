@@ -18,6 +18,9 @@ function Card() {
                 className='image'
                 src='https://cdn.discordapp.com/attachments/940702729213448223/962354430420860968/CoinflipDesktop.png'
               />
+              <ing
+              className="overwrite" 
+              src='https://cdn.discordapp.com/attachments/94070272921…223/962357880630173756/CoinflipScrittaDesktop.png' />
               <div className='figure__caption'>
                 <p>Coinflip</p>
               </div>
