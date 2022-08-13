@@ -56,28 +56,26 @@ function Header() {
             <Nav.Link href='/coin' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
               <span className='theme__nav'>CoinFlip</span>
-
             </Nav.Link>
 
             <Nav.Link className='d-flex align-items-center'>
               <Link to='/dice'>
                 <FaUser className='mx-2' />
                 <span className='theme__nav'>Dice</span>
-                
               </Link>
             </Nav.Link>
             <Nav.Link href='/' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
               <span className='theme__nav'>Profile</span>
-              
             </Nav.Link>
             <Nav.Link href='#action5' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
               <span className='theme__nav'>Settings</span>
-              
             </Nav.Link>
           </Nav>
-          <Button className='btn' variant='outline-success'>Connect Wallet</Button>
+          <Button className='btn' variant='outline-success'>
+            Connect Wallet
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -47,7 +47,7 @@ export default ({state, theChoice, ind, flipping}) => {
           onClick={() => {
             setSelected('T')
             setResult({res: 'tails'})
-            theChoice({coinInd: ind, res : 'tails'})
+            theChoice({coinInd: ind, res: 'tails'})
           }}
         >
           T

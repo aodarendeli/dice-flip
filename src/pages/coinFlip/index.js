@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import './coinflip.css'
 import Coin from '../../components/coin'
+import {useDispatch} from 'react-redux'
+import {
+  setDefaultModal,
+  setErrorModal,
+  setWarningModal,
+  setSuccessModal,
+} from '../../Redux/Actions/element'
 
 export default () => {
   const [coinNum, setCoinNum] = useState([{res: '', refresh: 'initial'}])
@@ -17,7 +24,7 @@ export default () => {
     {res: 'tails'},
   ])
   const [flipping, setFlipping] = useState(false)
-
+  const dispatch = useDispatch()
   const handleNumberOfCoins = (num) => {
     let temp = []
     for (let i = 0; i < num; i++) {
@@ -55,7 +62,7 @@ export default () => {
       // console.log(result)
     }, 200)
     console.log(userChoices)
-    
+
     //Karşılaştırma yapıyor
     setTimeout(() => {
       let numberOfCoins = coinNum.length
@@ -64,7 +71,7 @@ export default () => {
         choices[i] = userChoices[i].res
       }
       console.log(choices)
-      
+
       let ff = [...result]
       // debugger
       for (let i = 0; i < ff.length; i++) {
@@ -76,6 +83,14 @@ export default () => {
       }
       console.log(choices)
     }, 500)
+    dispatch(
+      setSuccessModal({
+        title: 'Kazandınız',
+        message: 'helallan amına goduum',
+        button: 'TamamKes',
+        cancel: 'vazgeç',
+      })
+    )
 
     setTimeout(() => {
       setFlipping(false)

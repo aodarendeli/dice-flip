@@ -6,7 +6,6 @@ import './App.css'
 import RollDice from './pages/rollDice'
 import CoinFlip from './pages/coinFlip'
 
-
 function App() {
   return (
     <>

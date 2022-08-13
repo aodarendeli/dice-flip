@@ -8,11 +8,11 @@ import SpecialCard from '../../components/SpecialCard'
 function Dashboard() {
   return (
     <>
-        <Card />
-        <Tables />
-        <SpecialCard />
-        <Sponsor />
-        <Footer />
+      <Card />
+      <Tables />
+      <SpecialCard />
+      <Sponsor />
+      <Footer />
     </>
   )
 }
