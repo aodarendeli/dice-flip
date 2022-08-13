@@ -5,7 +5,7 @@ import {FaUser} from 'react-icons/fa'
 function SpecialCard() {
   return (
     <div>
-      <Container fluid>
+      <Container fluid className='noselect'>
         <Row style={{rowGap: '20px'}}>
           <Col lg={3} md={6} sm={6} xs={6} className='padding'>
             <div className='theme__special-card d-flex align-items-center'>

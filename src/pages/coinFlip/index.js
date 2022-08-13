@@ -139,8 +139,26 @@ export default () => {
   <div className={c.con + ' pt-5 mt-5'}>
       <div className={c.gameCon}>
         <div className={c.mobileDice}>
-          <div className='d-flex row mx-auto'>
-            <div className={c.field + ' mb-3 '}>
+          <div className={c.fix + " " +c.mobilecoin +' d-flex'}>
+
+        <div className={c.field +  ' mt-3'}>
+            {/* <Fas /> */}
+            <p className={c.title }>Coins</p>
+          </div>
+        <div
+            className={
+              c.amountValue + ' text-center mt-2 justify-content-between'
+            }
+          >
+            <div  onClick={() => handleNumberOfCoins(1)} className={c.amountReduce + ' mx-2'}>1</div>
+            <div   onClick={() => handleNumberOfCoins(2)}className={c.amountReduce + ' mx-2'}>2</div>
+            <div   onClick={() => handleNumberOfCoins(3)}className={c.amountReduce + ' mx-2'}>3</div>
+            <div   onClick={() => handleNumberOfCoins(4)}className={c.amountReduce + ' mx-2'}>4</div>
+          </div>
+          </div>
+
+          <div className={c.mobilecoin + ' d-flex row'}>
+            <div className={c.field + ' mb-3 mt-3'}>
               <Amount />
               <p className={c.title}>Amount</p>
             </div>
@@ -151,14 +169,14 @@ export default () => {
             >
               <div className={c.amountReduce + ' mx-2'}>-</div>
               <div className={c.amounTotal}>1.0</div>
-              <div className={c.amountAdd}>+</div>
+              <div className={c.amountReduce}>+</div>
             </div>
             <div
               className={c.mobileWidth + ' d-flex justify-content-between pt-2'}
             >
-              <div className={c.amounCalculate}>1/2</div>
-              <div className={c.amounCalculate}>x2</div>
-              <div className={c.amounCalculate}>Max</div>
+              <div className={c.amountReduce}>1/2</div>
+              <div className={c.amountReduce}>x2</div>
+              <div className={c.amountReduce}>Max</div>
             </div>
           </div>
         </div>

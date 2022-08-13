@@ -162,3 +162,20 @@ p {
     width: 100px !important;
   }
 }
+
+#root > div > div > div > div.rolldice_gameLeft__MW1zk > div.mt-3.d-flex.align-items-center.show.dropdown > div{
+  width: 100%;
+}
+#root > div > div > div > div.coinflip_gameLeft__2l6w0 > div.mt-3.d-flex.align-items-center.show.dropdown > div{
+  width: 100%;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}

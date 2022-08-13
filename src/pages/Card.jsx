@@ -6,7 +6,7 @@ import '../App.css'
 
 function Card() {
   return (
-    <Container fluid className='pt-5 mt-5'>
+    <Container fluid className='pt-5 mt-5 noselect'>
       <Row className='theme__games'>
         <h1>Games</h1>
       </Row>

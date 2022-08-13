@@ -223,6 +223,7 @@
   }
   .mobileDice {
     display: flex;
+    flex-direction: column;
     padding-left: 15px;
     padding-right: 15px;
     background: #151a1e;
@@ -255,16 +256,18 @@
     cursor: pointer;
     color: #fff;
   }
-  .amountValue {
-    width: 30%;
-  }
-  .mobileWidth {
-    width: 30%;
-  }
+ 
+
   .pendingCon {
     display: none;
   }
-
+  .fix{
+    flex-direction: column;
+  }
+ .mobilecoin{
+  align-self: center;
+  width: min-content;
+ }
 
 }
 @media (min-width: 993px) {
