@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import {FaUser} from 'react-icons/fa'
-import './header.module.css'
+import './header.css'
 
 function Header() {
   return (
@@ -53,7 +53,7 @@ function Header() {
                 <span className='theme__nav'>HomePage</span>
               </Link>
             </Nav.Link>
-            <Nav.Link href='#action2' className='d-flex align-items-center'>
+            <Nav.Link href='/coin' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
               <span className='theme__nav'>CoinFlip</span>
 
