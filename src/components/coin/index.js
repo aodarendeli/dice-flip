@@ -18,21 +18,25 @@ export default ({state, theChoice, ind, flipping}) => {
   }, [])
   //{coinInd:ind,choice:'heads'}
   return (
-    <div className='coinCon'>
+    <div className='coinCon mx-auto'>
       <p>{`Coin ${ind + 1}`}</p>
       <p>{result.res}</p>
       <div id='coin' className={result.res}>
-        <div className='side-a'>
-          <CoinIcon />
+        <div className='side-a mx-auto'>
+          <img className="mx-auto" alt='coin' src={require('../../assets/images/coin.png')} />
           <p className='coinT'>T</p>
         </div>
         <div className='side-b'>
-          <CoinIcon />
+          <img alt='coin' src={require('../../assets/images/coin.png')} />
+
           <p className='coinT'>H</p>
         </div>
       </div>
-      <div className='choiceCon'>
-        <p
+      <div className='d-flex mt-2 justify-content-between amountValue ms-2'>
+            <div className='amountReduce mx-2'>1</div>
+            <div className='amountReduce mx-2'>2</div>
+      </div>
+        {/* <p
           className={selected === 'H' ? 'choiceSelected' : 'choiceUnselected'}
           onClick={() => {
             setSelected('H')
@@ -51,8 +55,7 @@ export default ({state, theChoice, ind, flipping}) => {
           }}
         >
           T
-        </p>
-      </div>
+        </p> */}
     </div>
   )
 }
