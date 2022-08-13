@@ -291,22 +291,56 @@ export default () => {
             </div>
           </div>
           <div className={c.gameRightMid}>
-          <div className='d-flex justify-content-between '>
-            {coinNum.map((item, index) => {
-              return (
-                <>
-                  <Coin
-                    key={index}
-                    state={coinNum[index]}
-                    ind={index}
-                    flipping={flipping}
-                    theChoice={(val) => {
-                      handleChoices(val)
-                    }}
-                  />
-                </>
-              )
+          <div className={c.rowsConDesktop}>
+          {coinNum.map((item, index) => {
+                return (
+                    <Coin
+                      key={index}
+                      state={coinNum[index]}
+                      ind={index}
+                      flipping={flipping}
+                      theChoice={(val) => {
+                        handleChoices(val)
+                      }}
+                    />
+                )
             })}
+          </div>
+          <div className={c.rowsConMobile}>
+          <div className={c.conRow1}>
+            {coinNum.map((item, index) => {
+              if(index < 2){
+                return (
+                    <Coin
+                      key={index}
+                      state={coinNum[index]}
+                      ind={index}
+                      flipping={flipping}
+                      theChoice={(val) => {
+                        handleChoices(val)
+                      }}
+                    />
+                )
+              }
+            })}
+                  </div>
+                  <div className={c.conRow2}>
+              {coinNum.map((item, index) => {
+              if(index > 1){
+                return (
+                    <Coin
+                      key={index}
+                      state={coinNum[index]}
+                      ind={index}
+                      flipping={flipping}
+                      theChoice={(val) => {
+                        handleChoices(val)
+                      }}
+                    />
+                )
+              }
+            })}
+                  </div>
          </div> 
           </div>
           <div className={c.mobileBtnDice}>
