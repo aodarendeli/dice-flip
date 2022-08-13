@@ -2,7 +2,8 @@
   color: white;
 }
 .theme__box {
-  background: white;
+  background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
   border-radius: 15px;
   width: 100%;
   background-size: cover;
@@ -49,7 +50,8 @@ img {
   cursor: pointer;
   padding-left: 10px;
   font-size: 25px;
-  color: gray;
+  color: white;
+  font-weight: bold;
   position: absolute;
   bottom: 0;
 }
