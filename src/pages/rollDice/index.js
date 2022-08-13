@@ -7,11 +7,11 @@ import Amount from '../../svg/Amount'
 import UpChart from '../../svg/UpChart'
 import Trophy from '../../svg/Trophy'
 import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import {FaUser} from 'react-icons/fa'
-
 import ReactDice from 'react-dice-complete'
 import 'react-dice-complete/dist/react-dice-complete.css'
+import { useDispatch } from 'react-redux'
+import {setDefaultModal,setWarningModal} from '../../Redux/Actions/element'
+
 
 export default () => {
   const [pendingValue, setPendingValue] = useState(0)
@@ -23,12 +23,13 @@ export default () => {
   const [diceSelections, setDiceSelections] = useState([0, 0, 0, 0, 0, 0])
   const [presetValue, setSetPresetValue] = useState(5)
   const [showResult, setShowResult] = useState({state: false, winStatus: false})
+  const dispatch=useDispatch()
   const diceRef = useRef(null)
   const handleRoll = (val) => {
     let arr = [...diceSelections]
     let res = arr.filter((dice) => dice === 0)
     if (res.length === 6) {
-      window.alert('Lütfen Seçim Yapınız')
+     dispatch(setWarningModal({title:'Warning',message:'Please choice atleast 1 dice.',button:'OK'}))
       return
     }
     setShowResult({state: false, winStatus: false})
@@ -74,14 +75,14 @@ export default () => {
             >
               <div className={c.amountReduce + ' mx-2'}>-</div>
               <div className={c.amounTotal}>1.0</div>
-              <div className={c.amountAdd}>+</div>
+              <div className={c.amountReduce}>+</div>
             </div>
             <div
               className={c.mobileWidth + ' d-flex justify-content-between pt-2'}
             >
-              <div className={c.amounCalculate}>1/2</div>
-              <div className={c.amounCalculate}>x2</div>
-              <div className={c.amounCalculate}>Max</div>
+              <div className={c.amountReduce}>1/2</div>
+              <div className={c.amountReduce}>x2</div>
+              <div className={c.amountReduce}>Max</div>
             </div>
           </div>
         </div>
@@ -175,12 +176,12 @@ export default () => {
           >
             <div className={c.amountReduce + ' mx-2'}>-</div>
             <div className={c.amounTotal}>1.0</div>
-            <div className={c.amountAdd}>+</div>
+            <div className={c.amountReduce}>+</div>
           </div>
           <div className='d-flex justify-content-between pt-2'>
-            <div className={c.amounCalculate}>1/2</div>
-            <div className={c.amounCalculate}>x2</div>
-            <div className={c.amounCalculate}>Max</div>
+            <div className={c.amountReduce}>1/2</div>
+            <div className={c.amountReduce}>x2</div>
+            <div className={c.amountReduce}>Max</div>
           </div>
           {!betState ? (
             <div className={c.btnDice + ' mt-5'} onClick={handleRoll}>
@@ -231,11 +232,11 @@ export default () => {
                   rollDone={handleRollDone}
                   ref={diceRef}
                 />
-                {showResult.state && (
-                  <div style={{color: '#fff'}}>
+                {showResult.state ? (
+                  <div style={{color: '#fff',height:'30px'}}>
                     {showResult.winStatus ? 'YOU WIN' : 'YOU LOSE'}
                   </div>
-                )}
+                ):<div style={{height:'30px'}}/>}
               </div>
             )}
           </div>

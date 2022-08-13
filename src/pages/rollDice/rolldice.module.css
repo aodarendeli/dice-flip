@@ -8,7 +8,12 @@
   padding-right: 30px;
   text-align: center;
 }
-
+.amountAdd:hover {
+  opacity: 0.8;
+}
+.amountReduce:hover {
+  background-color: #2f3a42;
+}
 .gameCon {
   display: flex;
   background-color: #111316;
@@ -143,14 +148,15 @@
 }
 .amountReduce {
   padding: 7px;
-  background-color: lime;
+  background-color: #151A1E;
+  border :1px solid #2f3a42;
   border-radius: 10px;
   opacity: 1;
-  border-color: 1px solid red;
   color: white;
   font-size: 16px;
   padding-left: 15px;
   padding-right: 15px;
+  cursor: pointer;
 }
 .amounTotal {
   color: white;
