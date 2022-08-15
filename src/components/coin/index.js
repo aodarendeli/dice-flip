@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react'
 import './coin.css'
 import CoinIcon from '../../svg/CoinIcon'
 import Col from 'react-bootstrap/Col'
-
+import useSound from 'use-sound'
+import coinstart from '../../assets/sounds/coinStart.wav'
 export default ({state, theChoice, ind, flipping}) => {
   const [result, setResult] = useState({res: 'heads', refresh: 'initial'})
   const [selected, setSelected] = useState('T')
+  const [playCoin] = useSound(coinstart)
   useEffect(() => {
     setResult(state)
     // console.log('state')
@@ -37,24 +39,34 @@ export default ({state, theChoice, ind, flipping}) => {
         </div>
       </div>
       <div className='d-flex mt-2 justify-content-between amountValue ms-2'>
-        <div className={selected === 'H' ? 'amountReduce mx-2' : 'amountReduceUnselect mx-2'}>
+        <div
+          className={
+            selected === 'H' ? 'amountReduce mx-2' : 'amountReduceUnselect mx-2'
+          }
+        >
           <p
-            className={selected === 'H'?'choiceSelected':'choiceUnselected'}
+            className={selected === 'H' ? 'choiceSelected' : 'choiceUnselected'}
             onClick={() => {
               setSelected('H')
               setResult({res: 'heads'})
+              playCoin()
               theChoice({coinInd: ind, res: 'heads'})
             }}
           >
             H
           </p>
         </div>
-        <div className={selected === 'T' ? 'amountReduce mx-2' : 'amountReduceUnselect mx-2'}>
+        <div
+          className={
+            selected === 'T' ? 'amountReduce mx-2' : 'amountReduceUnselect mx-2'
+          }
+        >
           <p
-            className={selected === 'T'?'choiceSelected':'choiceUnselected'}
+            className={selected === 'T' ? 'choiceSelected' : 'choiceUnselected'}
             onClick={() => {
               setSelected('T')
               setResult({res: 'tails'})
+              playCoin()
               theChoice({coinInd: ind, res: 'tails'})
             }}
           >

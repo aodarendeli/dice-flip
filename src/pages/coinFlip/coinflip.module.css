@@ -153,6 +153,18 @@
   padding-right: 15px;
   cursor: pointer;
 }
+.amountReduceSelected{
+  padding: 7px;
+  background-color: white;
+  border: 1px solid #2f3a42;
+  border-radius: 10px;
+  opacity: 1;
+  color: #151a1e;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+}
 .amounTotal {
   color: white;
 }

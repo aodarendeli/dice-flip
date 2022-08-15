@@ -53,9 +53,12 @@ function Header() {
                 <span className='theme__nav'>HomePage</span>
               </Link>
             </Nav.Link>
-            <Nav.Link href='/coin' className='d-flex align-items-center'>
-              <FaUser className='mx-2' />
-              <span className='theme__nav'>CoinFlip</span>
+
+            <Nav.Link className='d-flex align-items-center'>
+              <Link to='/coin'>
+                <FaUser className='mx-2' />
+                <span className='theme__nav'>Coin</span>
+              </Link>
             </Nav.Link>
 
             <Nav.Link className='d-flex align-items-center'>
@@ -64,6 +67,7 @@ function Header() {
                 <span className='theme__nav'>Dice</span>
               </Link>
             </Nav.Link>
+
             <Nav.Link href='/' className='d-flex align-items-center'>
               <FaUser className='mx-2' />
               <span className='theme__nav'>Profile</span>

@@ -14,13 +14,16 @@ import UpChart from '../../svg/UpChart'
 import Trophy from '../../svg/Trophy'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Coin from '../../components/coin'
+import useSound from 'use-sound'
+import coinstop from '../../assets/sounds/coinStop.wav'
+import pingpong from '../../assets/sounds/pingPong.wav'
 
 export default () => {
   const [winAmountValue, setWinAmountValue] = useState(0)
   const [pendingValue, setPendingValue] = useState(0)
   const [multiplierValue, setMultiplierValue] = useState(0)
   const [betState, setBetState] = useState(false)
-
+  const [selectedNumber,setSelectedNumber]=useState('1')
   const [coinNum, setCoinNum] = useState([{res: '', refresh: 'initial'}])
   const [userChoices, setUserChoices] = useState([
     {coinInd: 0, res: 'tails'},
@@ -36,7 +39,12 @@ export default () => {
   ])
   const [flipping, setFlipping] = useState(false)
   const dispatch = useDispatch()
+  const [playCoinStop] = useSound(coinstop)
+  const [playPingPong] = useSound(pingpong)
+
   const handleNumberOfCoins = (num) => {
+    setSelectedNumber(num)
+    playPingPong()
     let temp = []
     for (let i = 0; i < num; i++) {
       temp.push({res: 'tails', refresh: 'initial'})
@@ -71,6 +79,7 @@ export default () => {
       }
       setCoinNum([...result])
       // console.log(result)
+      playCoinStop()
     }, 200)
     console.log(userChoices)
 
@@ -88,17 +97,31 @@ export default () => {
       let status
       for (let i = 0; i < check.length; i++) {
         if (check[i].res !== choices[i]) {
-          status='lose'
+          status = 'lose'
         }
       }
       setTimeout(() => {
-        if(status==='lose'){
-          let msg=` re`
-          dispatch(setErrorModal({title:'YOU LOSE',message:`You choose the wrong order! \n Order is ${result.map((ans)=>`${ans.res} `)} But your choice was: ${choices.map((ans)=>`${ans} `)}`,button:'Close'}))
-        }else{
-          dispatch(setSuccessModal({title:'YOU WIN',message:'You picked right order :)',button:'Close'}))
+        if (status === 'lose') {
+          let msg = ` re`
+          dispatch(
+            setErrorModal({
+              title: 'YOU LOSE',
+              message: `You choose the wrong order! \n Order is ${result.map(
+                (ans) => `${ans.res} `
+              )} But your choice was: ${choices.map((ans) => `${ans} `)}`,
+              button: 'Close',
+            })
+          )
+        } else {
+          dispatch(
+            setSuccessModal({
+              title: 'YOU WIN',
+              message: 'You picked right order :)',
+              button: 'Close',
+            })
+          )
         }
-      }, 2200);
+      }, 2200)
     }, 500)
 
     setTimeout(() => {
@@ -132,11 +155,11 @@ export default () => {
   useEffect(() => {
     console.log(userChoices)
   }, [userChoices])
-  const handleBet=()=>{
+  const handleBet = () => {
     setBetState(true)
     handleFlip()
   }
-  const handleBack=()=>{
+  const handleBack = () => {
     setBetState(false)
   }
   return (
@@ -155,25 +178,25 @@ export default () => {
             >
               <div
                 onClick={() => handleNumberOfCoins(1)}
-                className={c.amountReduce + ' mx-2'}
+                className={selectedNumber =='1'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
               >
                 1
               </div>
               <div
                 onClick={() => handleNumberOfCoins(2)}
-                className={c.amountReduce + ' mx-2'}
+                className={selectedNumber =='2'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
               >
                 2
               </div>
               <div
                 onClick={() => handleNumberOfCoins(3)}
-                className={c.amountReduce + ' mx-2'}
+                className={selectedNumber =='3'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
               >
                 3
               </div>
               <div
                 onClick={() => handleNumberOfCoins(4)}
-                className={c.amountReduce + ' mx-2'}
+                className={selectedNumber =='4'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
               >
                 4
               </div>
@@ -293,25 +316,25 @@ export default () => {
           >
             <div
               onClick={() => handleNumberOfCoins(1)}
-              className={c.amountReduce + ' mx-2'}
+              className={selectedNumber =='1'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
             >
               1
             </div>
             <div
               onClick={() => handleNumberOfCoins(2)}
-              className={c.amountReduce + ' mx-2'}
+              className={selectedNumber =='2'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
             >
               2
             </div>
             <div
               onClick={() => handleNumberOfCoins(3)}
-              className={c.amountReduce + ' mx-2'}
+              className={selectedNumber =='3'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
             >
               3
             </div>
             <div
               onClick={() => handleNumberOfCoins(4)}
-              className={c.amountReduce + ' mx-2'}
+              className={selectedNumber =='4'? c.amountReduceSelected+ ' mx-2' : c.amountReduce + ' mx-2'}
             >
               4
             </div>
@@ -335,9 +358,16 @@ export default () => {
             <div className={c.amountReduce}>Max</div>
           </div>
           {!betState ? (
-            <div className={c.btnDice + ' mt-5'} onClick={handleBet}>Bet</div>
+            <div className={c.btnDice + ' mt-5'} onClick={handleBet}>
+              Bet
+            </div>
           ) : (
-            <div className={c.btnDice + ' mt-5'} onClick={!flipping && handleBack}>Back</div>
+            <div
+              className={c.btnDice + ' mt-5'}
+              onClick={!flipping && handleBack}
+            >
+              Back
+            </div>
           )}
         </div>
 
@@ -402,9 +432,16 @@ export default () => {
           </div>
           <div className={c.mobileBtnDice}>
             {!betState ? (
-              <div className={c.mobileBtnDice + ' mt-5'} onClick={handleBet}>Bet</div>
+              <div className={c.mobileBtnDice + ' mt-5'} onClick={handleBet}>
+                Bet
+              </div>
             ) : (
-              <div className={c.mobileBtnDice + ' mt-5'} onClick={!flipping && handleBack}>Back</div>
+              <div
+                className={c.mobileBtnDice + ' mt-5'}
+                onClick={!flipping && handleBack}
+              >
+                Back
+              </div>
             )}
           </div>
 
