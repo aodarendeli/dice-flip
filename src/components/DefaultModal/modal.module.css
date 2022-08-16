@@ -92,7 +92,104 @@
   height: 50px;
   margin-top: 1vh;
 }
+.profileMeta:hover{
+  opacity: .7;
+}
+.profileCoinbase:hover{
+  opacity: .7;
+}
+.profileWallet:hover{
+  opacity: .7;
+}
+.profileDomain:hover{
+  opacity: .7;
+}
 
+.profileMeta{
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background-color: #FFCC9C;
+  padding: 10px;
+  opacity: 1;
+  cursor: pointer;
+}
+.profileCoinbase{
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background-color: #7794FC;
+  padding: 10px;
+  opacity: 1;
+  cursor: pointer;
+}
+.profileWallet{
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background-color: #9CCEFF;
+  padding: 10px;
+  opacity: 1;
+  cursor: pointer;
+}
+.profileDomain{
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background-color: #A799FF;
+  padding: 10px;
+  opacity: 1;
+  cursor: pointer;
+}
+.container h2 {
+  color: white;
+}
+.container h3 {
+  color: white;
+}
+.amountReduce {
+  background-color: white;
+  border: 1px solid #2f3a42;
+  border-radius: 10px;
+  opacity: 1;
+  color: white;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding: 8px 8px;
+}
+.amountReducer{
+  background-color: white;
+  border: 1px solid #2f3a42;
+  border-radius: 10px;
+  opacity: 1;
+  color: white;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding: 8px 8px;
+}
+.hr{
+  color: #9CCEFF;
+  margin-top: 10px;
+  width: 100%;
+}
+.amountReduce:hover{
+  opacity: .7;
+}
+.amountReduce a {
+  color: red;
+  text-align: center;
+}
+.gap{
+  column-gap: 10px;
+}
+.icons{
+  color: white;
+  background-color: #151a1e;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (min-width: 600px) {
   .popup {
     width: 75vw;
@@ -183,3 +280,5 @@
     font-size: 14px;
   }
 }
+
+

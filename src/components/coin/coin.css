@@ -125,6 +125,9 @@
   padding-right: 10px;
   cursor: pointer;
 }
+.gap{
+  column-gap: 10px;
+}
 .amountReduceUnselect {
   background-color: #151a1e;
   border: 1px solid #2f3a42;
