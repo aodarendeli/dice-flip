@@ -17,6 +17,10 @@ import Coin from '../../components/coin'
 import useSound from 'use-sound'
 import coinstop from '../../assets/sounds/coinStop.wav'
 import pingpong from '../../assets/sounds/pingPong.wav'
+import Tables from '../../components/Tables'
+import Sponsor from '../../components/Sponsor'
+import Footer from '../../components/Footer'
+import SpecialCard from '../../components/SpecialCard'
 
 export default () => {
   const [winAmountValue, setWinAmountValue] = useState(0)
@@ -163,7 +167,8 @@ export default () => {
     setBetState(false)
   }
   return (
-    <div className={c.con + ' pt-5 mt-5'}>
+    <>
+    <div className={c.con + ' pt-5 mt-3'}>
       <div className={c.gameCon}>
         <div className={c.mobileDice}>
           <div className={c.fix + ' ' + c.mobilecoin + ' d-flex'}>
@@ -462,5 +467,11 @@ export default () => {
         </div>
       </div>
     </div>
+
+    <Tables />
+    <SpecialCard />
+    <Sponsor />
+    <Footer />
+    </>
   )
 }

@@ -197,3 +197,11 @@ p {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
+
+/*NAVBAR */ 
+
+.dropdown-menu{
+  background-color: #212529 !important;
+  border: 1px solid #2f3a42 !important;
+}

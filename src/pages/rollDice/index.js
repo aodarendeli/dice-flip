@@ -11,6 +11,10 @@ import ReactDice from 'react-dice-complete'
 import 'react-dice-complete/dist/react-dice-complete.css'
 import {useDispatch} from 'react-redux'
 import {setDefaultModal, setWarningModal} from '../../Redux/Actions/element'
+import Tables from '../../components/Tables'
+import Sponsor from '../../components/Sponsor'
+import Footer from '../../components/Footer'
+import SpecialCard from '../../components/SpecialCard'
 
 export default () => {
   const [pendingValue, setPendingValue] = useState(0)
@@ -65,7 +69,8 @@ export default () => {
     console.log(diceSelections)
   }, [diceSelections])
   return (
-    <div className={c.con}>
+    <>
+    <div className={c.con + ' mt-5 pt-5'}>
       <div className={c.gameCon}>
         <div className={c.mobileDice}>
           <div className='d-flex row mx-auto'>
@@ -276,5 +281,11 @@ export default () => {
         </div>
       </div>
     </div>
+
+    <Tables />
+    <SpecialCard />
+    <Sponsor />
+    <Footer />
+    </>
   )
 }

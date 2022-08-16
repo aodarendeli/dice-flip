@@ -4,6 +4,12 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import {FaUser} from 'react-icons/fa'
+import {AiOutlineHome} from 'react-icons/ai'
+import {FiSettings} from 'react-icons/fi'
+import {TbDeviceGamepad2} from 'react-icons/tb'
+import {BsCurrencyBitcoin,BsDice6} from 'react-icons/bs'
+import { NavDropdown } from 'react-bootstrap'
+
 import './header.css'
 
 function Header() {
@@ -20,7 +26,7 @@ function Header() {
     // </header>
     <Navbar bg='dark' variant='dark' expand='lg' fixed='top'>
       <Container fluid>
-        <Navbar.Brand href='#'>
+        <Navbar.Brand>
           <svg
             width='43'
             height='44'
@@ -47,36 +53,67 @@ function Header() {
             style={{maxHeight: '100px'}}
             navbarScroll
           >
-            <Nav.Link href='#action1' className='d-flex align-items-center'>
-              <Link to='/'>
-                <FaUser className='mx-2' />
+            <div className='d-flex align-items-center nav-link'>
+              <Link to='/' className='d-flex align-items-center'>
+                <AiOutlineHome className='mx-1' />
                 <span className='theme__nav'>HomePage</span>
               </Link>
-            </Nav.Link>
+            </div>
 
-            <Nav.Link className='d-flex align-items-center'>
+            <div className='d-flex align-items-center nav-link'>
+                <TbDeviceGamepad2 className='mx-1' />
+                <NavDropdown title="Games" id="basic-nav-dropdown">
+                    <div className='d-flex align-items-center nav-link'>
+                      <Link to='/coin' className='d-flex align-items-center'>
+                        <BsCurrencyBitcoin className='mx-1' />
+                        <span className='theme__nav'>Coin</span>
+                      </Link>
+                    </div>
+                    <div className='d-flex align-items-center nav-link'>
+                      <Link to='/dice' className='d-flex align-items-center'>
+                        <BsDice6 className='mx-1' />
+                        <span className='theme__nav'>Dice</span>
+                      </Link>
+                    </div>
+                </NavDropdown>
+            </div>
+
+            <div className='d-flex align-items-center nav-link'>
+              <Link to='/' className='d-flex align-items-center'>
+                <FaUser className='mx-1' />
+                <span className='theme__nav'>Profile</span>
+              </Link>
+            </div>
+
+            <div className='d-flex align-items-center nav-link'>
+              <Link to='/' className='d-flex align-items-center'>
+                <FiSettings className='mx-1' />
+                <span className='theme__nav'>Settings</span>
+              </Link>
+            </div>
+            {/* <Nav.Link className='d-flex align-items-center'>
               <Link to='/coin'>
-                <FaUser className='mx-2' />
+                <FaUser className='mx-1' />
                 <span className='theme__nav'>Coin</span>
               </Link>
             </Nav.Link>
 
             <Nav.Link className='d-flex align-items-center'>
               <Link to='/dice'>
-                <FaUser className='mx-2' />
+                <FaUser className='mx-1' />
                 <span className='theme__nav'>Dice</span>
               </Link>
             </Nav.Link>
 
             <Nav.Link href='/' className='d-flex align-items-center'>
-              <FaUser className='mx-2' />
+              <FaUser className='mx-1' />
               <span className='theme__nav'>Profile</span>
             </Nav.Link>
             <Nav.Link href='#action5' className='d-flex align-items-center'>
-              <FaUser className='mx-2' />
+              <FaUser className='mx-1' />
               <span className='theme__nav'>Settings</span>
-            </Nav.Link>
-          </Nav>
+            </Nav.Link>*/}
+          </Nav> 
           <Button className='btn' variant='outline-success'>
             Connect Wallet
           </Button>
