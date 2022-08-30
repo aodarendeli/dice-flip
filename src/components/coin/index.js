@@ -49,7 +49,7 @@ export default ({state, theChoice, ind, flipping}) => {
             onClick={() => {
               setSelected('H')
               setResult({res: 'heads'})
-              playCoin()
+              localStorage.getItem('sound') === 'on' && playCoin()
               theChoice({coinInd: ind, res: 'heads'})
             }}
           >
@@ -66,7 +66,7 @@ export default ({state, theChoice, ind, flipping}) => {
             onClick={() => {
               setSelected('T')
               setResult({res: 'tails'})
-              playCoin()
+              localStorage.getItem('sound') === 'on' && playCoin()
               theChoice({coinInd: ind, res: 'tails'})
             }}
           >

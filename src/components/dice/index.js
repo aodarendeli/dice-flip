@@ -10,8 +10,8 @@ export default ({num, selector}) => {
   const [selected, setSelected] = useState(false)
   const handleDiceSelect = () => {
     setSelected(!selected)
-    !selected && playCoin()
-    selected && playEmpty()
+    localStorage.getItem('sound') === 'on' && !selected && playCoin()
+    localStorage.getItem('sound') === 'on' && selected && playEmpty()
     selector(num)
   }
   if (num === 1) {

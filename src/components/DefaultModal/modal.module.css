@@ -78,7 +78,7 @@
   margin-bottom: 1vh;
   font-weight: 400;
   opacity: 0.8;
-  color:#fff;
+  color: #fff;
 }
 
 .button {
@@ -92,47 +92,47 @@
   height: 50px;
   margin-top: 1vh;
 }
-.profileMeta:hover{
-  opacity: .7;
+.profileMeta:hover {
+  opacity: 0.7;
 }
-.profileCoinbase:hover{
-  opacity: .7;
+.profileCoinbase:hover {
+  opacity: 0.7;
 }
-.profileWallet:hover{
-  opacity: .7;
+.profileWallet:hover {
+  opacity: 0.7;
 }
-.profileDomain:hover{
-  opacity: .7;
+.profileDomain:hover {
+  opacity: 0.7;
 }
 
-.profileMeta{
+.profileMeta {
   border: 1px solid transparent;
   border-radius: 15px;
-  background-color: #FFCC9C;
+  background-color: #ffcc9c;
   padding: 10px;
   opacity: 1;
   cursor: pointer;
 }
-.profileCoinbase{
+.profileCoinbase {
   border: 1px solid transparent;
   border-radius: 15px;
-  background-color: #7794FC;
+  background-color: #7794fc;
   padding: 10px;
   opacity: 1;
   cursor: pointer;
 }
-.profileWallet{
+.profileWallet {
   border: 1px solid transparent;
   border-radius: 15px;
-  background-color: #9CCEFF;
+  background-color: #9cceff;
   padding: 10px;
   opacity: 1;
   cursor: pointer;
 }
-.profileDomain{
+.profileDomain {
   border: 1px solid transparent;
   border-radius: 15px;
-  background-color: #A799FF;
+  background-color: #a799ff;
   padding: 10px;
   opacity: 1;
   cursor: pointer;
@@ -155,7 +155,7 @@
   cursor: pointer;
   padding: 8px 8px;
 }
-.amountReducer{
+.amountReducer {
   background-color: white;
   border: 1px solid #2f3a42;
   border-radius: 10px;
@@ -167,22 +167,50 @@
   cursor: pointer;
   padding: 8px 8px;
 }
-.hr{
-  color: #9CCEFF;
+.optionSelected {
+  background-color: green !important;
+  border: 1px solid #2f3a42;
+  border-radius: 10px;
+  opacity: 1;
+  color: white;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding: 8px 8px;
+}
+.optionSelected svg {
+  background: none !important;
+}
+.optionUnselected {
+  background-color: #2f3a42 !important;
+  border: 1px solid #2f3a42;
+  border-radius: 10px;
+  opacity: 1;
+  color: white;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding: 8px 8px;
+}
+
+.hr {
+  color: #9cceff;
   margin-top: 10px;
   width: 100%;
 }
-.amountReduce:hover{
-  opacity: .7;
+.amountReduce:hover {
+  opacity: 0.7;
 }
 .amountReduce a {
   color: red;
   text-align: center;
 }
-.gap{
+.gap {
   column-gap: 10px;
 }
-.icons{
+.icons {
   color: white;
   background-color: #151a1e;
   text-align: center;
@@ -280,5 +308,3 @@
     font-size: 14px;
   }
 }
-
-

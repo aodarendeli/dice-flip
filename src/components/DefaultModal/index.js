@@ -1,15 +1,18 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import Button from '../Button'
-import {BsCurrencyBitcoin,BsSun,BsMoon} from 'react-icons/bs'
+import {BsCurrencyBitcoin, BsSun, BsMoon} from 'react-icons/bs'
 import c from './modal.module.css'
 import {setDefaultModal} from '../../Redux/Actions/element'
+import {setTheme} from '../../Redux/Actions/themeAction'
+
 import classcat from 'classcat'
-import {GoUnmute,GoMute} from 'react-icons/go'
+import {GoUnmute, GoMute} from 'react-icons/go'
 
 function DefaultModal() {
   const dispatch = useDispatch()
-
+  const [sound, setSound] = useState(localStorage.getItem('sound') || 'off')
+  const [theme, setThemee] = useState(localStorage.getItem('theme') || 'dark')
   const modalData = useSelector((selector) => selector?.elements?.defaultModal)
   console.log(modalData)
 
@@ -25,7 +28,34 @@ function DefaultModal() {
 
     dispatch(setDefaultModal(false))
   }
-
+  const toggleSound = () => {
+    let sound = localStorage.getItem('sound')
+    if (sound === 'off') {
+      localStorage.setItem('sound', 'on')
+      setSound('on')
+    } else {
+      localStorage.setItem('sound', 'off')
+      setSound('off')
+    }
+  }
+  const soundOn = () => {
+    localStorage.setItem('sound', 'on')
+    setSound('on')
+  }
+  const soundOff = () => {
+    localStorage.setItem('sound', 'off')
+    setSound('off')
+  }
+  const themeDark = () => {
+    localStorage.setItem('theme', 'dark')
+    setThemee('dark')
+    dispatch(setTheme('dark'))
+  }
+  const themeLight = () => {
+    localStorage.setItem('theme', 'light')
+    setThemee('light')
+    dispatch(setTheme('light'))
+  }
   return (
     <div
       ref={modalRef}
@@ -100,69 +130,132 @@ function DefaultModal() {
           />
         )}
 
-        {
-          modalData.type === 'profile' && (
-            <div className='container d-flex row'>
-              <h2>Connect Your Wallet</h2>
-              <hr className={c.hr} />
+        {modalData.type === 'profile' && (
+          <div className='container d-flex row'>
+            <h2>Connect Your Wallet</h2>
+            <hr className={c.hr} />
 
-              <div className={c.profileMeta + ' mt-3 d-flex justify-content-between align-items-center'}>
-                  <span>Metamask</span>
-                  <BsCurrencyBitcoin />
-              </div>
-              <div className={c.profileCoinbase + ' mt-3 d-flex justify-content-between align-items-center'}>
-                  <span>Coinbase</span>
-                  <BsCurrencyBitcoin />
-              </div>
-              <div className={c.profileWallet + ' mt-3 d-flex justify-content-between align-items-center'}>
-                  <span>Wallet Connect</span>
-                  <BsCurrencyBitcoin />
-              </div>
-              <div className={c.profileDomain + ' mt-3 d-flex justify-content-between align-items-center'}>
-                  <span>Unstopable Domains</span>
-                  <BsCurrencyBitcoin />
-              </div>
+            <div
+              className={
+                c.profileMeta +
+                ' mt-3 d-flex justify-content-between align-items-center'
+              }
+            >
+              <span>Metamask</span>
+              <BsCurrencyBitcoin />
             </div>
-          )
-        }
+            <div
+              className={
+                c.profileCoinbase +
+                ' mt-3 d-flex justify-content-between align-items-center'
+              }
+            >
+              <span>Coinbase</span>
+              <BsCurrencyBitcoin />
+            </div>
+            <div
+              className={
+                c.profileWallet +
+                ' mt-3 d-flex justify-content-between align-items-center'
+              }
+            >
+              <span>Wallet Connect</span>
+              <BsCurrencyBitcoin />
+            </div>
+            <div
+              className={
+                c.profileDomain +
+                ' mt-3 d-flex justify-content-between align-items-center'
+              }
+            >
+              <span>Unstopable Domains</span>
+              <BsCurrencyBitcoin />
+            </div>
+          </div>
+        )}
 
-        {
-          modalData.type === 'settings' && (
-            <div className='container d-flex row'>
-              <h2>Settings</h2>
-              <hr className={c.hr} />
-              <div className='container mt-2'>
-                <div className='row'>
-                    <div className='col-6'>
-                      <h3>Sounds</h3>
-                    </div>
-                    <div className='col-6'>
-                      <h3>Thema</h3>
-                    </div>
+        {modalData.type === 'settings' && (
+          <div className='container d-flex row'>
+            <h2>Settings</h2>
+            <hr className={c.hr} />
+            <div className='container mt-2'>
+              <div className='row'>
+                <div className='col-6' onClick={toggleSound}>
+                  <h3>{'Sound: ' + localStorage.getItem('sound')}</h3>
+                </div>
+                <div className='col-6'>
+                  <h3>{'Theme: ' + localStorage.getItem('theme')}</h3>
                 </div>
               </div>
-              <div className={c.gap + ' mt-3 d-flex justify-content-between align-items-center'}  style={{columnGap: "30px"}}>
-              
-                  <div className={c.amountReducer + ' w-100 d-flex bg-dark'} style={{columnGap: "20px"}}>
-                  <span className={c.amountReduce + ' w-100 d-flex justify-content-center'} style={{backgroundColor:"#151A1E"}}>
-                      <GoUnmute className={c.icons}/>
-                    </span>
-                    <span className={c.amountReduce + ' w-100 d-flex justify-content-center'} style={{backgroundColor:"#151A1E"}}>
-                      <GoMute />
-                    </span>
-                  </div>
-                  <div className={c.amountReducer + ' w-100 d-flex bg-dark'} style={{columnGap: "20px"}}>
-                    <span className={c.amountReduce + ' w-100 d-flex justify-content-center'} style={{backgroundColor:"#151A1E"}}>
-                      <BsMoon className={c.icons}/>
-                    </span>
-                    <span className={c.amountReduce + ' w-100 d-flex justify-content-center'} style={{backgroundColor:"#151A1E"}}>
-                      <BsSun />
-                    </span>
-                  </div>
+            </div>
+            <div
+              className={
+                c.gap +
+                ' mt-3 d-flex justify-content-between align-items-center'
+              }
+              style={{columnGap: '30px'}}
+            >
+              <div
+                className={c.amountReducer + ' w-100 d-flex bg-dark'}
+                style={{columnGap: '20px'}}
+              >
+                <span
+                  onClick={soundOn}
+                  className={
+                    sound === 'on'
+                      ? c.optionSelected +
+                        ' w-100 d-flex justify-content-center'
+                      : c.optionUnselected +
+                        ' w-100 d-flex justify-content-center'
+                  }
+                >
+                  <GoUnmute className={c.icons} />
+                </span>
+                <span
+                  onClick={soundOff}
+                  className={
+                    sound === 'off'
+                      ? c.optionSelected +
+                        ' w-100 d-flex justify-content-center'
+                      : c.optionUnselected +
+                        ' w-100 d-flex justify-content-center'
+                  }
+                >
+                  <GoMute />
+                </span>
+              </div>
+              <div
+                className={c.amountReducer + ' w-100 d-flex bg-dark'}
+                style={{columnGap: '20px'}}
+              >
+                <span
+                  onClick={themeDark}
+                  className={
+                    theme === 'dark'
+                      ? c.optionSelected +
+                        ' w-100 d-flex justify-content-center'
+                      : c.optionUnselected +
+                        ' w-100 d-flex justify-content-center'
+                  }
+                >
+                  <BsMoon className={c.icons} />
+                </span>
+                <span
+                  onClick={themeLight}
+                  className={
+                    theme === 'light'
+                      ? c.optionSelected +
+                        ' w-100 d-flex justify-content-center'
+                      : c.optionUnselected +
+                        ' w-100 d-flex justify-content-center'
+                  }
+                >
+                  <BsSun />
+                </span>
               </div>
             </div>
-          )
-        }
+          </div>
+        )}
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import c from './smallDice.module.css'
-import useSound from 'use-sound'
-import coin1 from '../../assets/sounds/coin1.mp3'
-import empty from '../../assets/sounds/empty.wav'
+// import useSound from 'use-sound'
+// import coin1 from '../../assets/sounds/coin1.mp3'
+// import empty from '../../assets/sounds/empty.wav'
 
 export default ({num}) => {
   if (num === 1) {

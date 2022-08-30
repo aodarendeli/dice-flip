@@ -51,9 +51,9 @@ img {
   box-shadow: 0 0 5px #ddd;
 }
 .figure__caption p {
-  cursor: pointer;
+  /* cursor: pointer; */
   padding-left: 10px;
-  font-size: 25px;
+  font-size: 2.2vw;
   color: white;
   font-weight: bold;
   position: absolute;
@@ -130,6 +130,10 @@ p {
 .nav-link a {
   color: #c6cfd6 !important;
   text-decoration: none !important;
+  cursor: pointer !important;
+}
+.nav-link {
+  cursor: pointer !important;
 }
 .theme__sponsor {
   margin-top: 30px;
@@ -198,10 +202,29 @@ p {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+/*NAVBAR */
 
-/*NAVBAR */ 
-
-.dropdown-menu{
+.dropdown-menu {
   background-color: #212529 !important;
   border: 1px solid #2f3a42 !important;
+}
+
+.filterDisabled {
+  /* filter: blur(3px); */
+  filter: grayscale(1);
+  cursor: not-allowed !important;
+  /* filter: saturate(2.2);
+  filter:none; */
+}
+
+.dropdown-menu.show {
+  width: 100% !important;
+}
+.light {
+  color: #000 !important;
+  background-color: #fff !important;
+}
+.dark {
+  color: #fff !important;
+  background-color: #000 !important;
 }

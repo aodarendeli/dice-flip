@@ -7,14 +7,14 @@ import {FaUser} from 'react-icons/fa'
 import {AiOutlineHome} from 'react-icons/ai'
 import {FiSettings} from 'react-icons/fi'
 import {TbDeviceGamepad2} from 'react-icons/tb'
-import {BsCurrencyBitcoin,BsDice6} from 'react-icons/bs'
-import { NavDropdown } from 'react-bootstrap'
+import {BsCurrencyBitcoin, BsDice6} from 'react-icons/bs'
+import {NavDropdown} from 'react-bootstrap'
 import './header.css'
-import { useDispatch } from 'react-redux'
-import { setDefaultModal } from '../../Redux/Actions/element'
+import {useDispatch} from 'react-redux'
+import {setDefaultModal} from '../../Redux/Actions/element'
 
 function Header() {
- const dispatch = useDispatch() 
+  const dispatch = useDispatch()
 
   return (
     // <header className="d-flex col justify-content-end">
@@ -64,38 +64,43 @@ function Header() {
             </div>
 
             <div className='d-flex align-items-center nav-link'>
-                <TbDeviceGamepad2 className='mx-1' />
-                <NavDropdown title="Games" id="basic-nav-dropdown">
-                    <div className='d-flex align-items-center nav-link'>
-                      <Link to='/coin' className='d-flex align-items-center'>
-                        <BsCurrencyBitcoin className='mx-1' />
-                        <span className='theme__nav'>Coin</span>
-                      </Link>
-                    </div>
-                    <div className='d-flex align-items-center nav-link'>
-                      <Link to='/dice' className='d-flex align-items-center'>
-                        <BsDice6 className='mx-1' />
-                        <span className='theme__nav'>Dice</span>
-                      </Link>
-                    </div>
-                </NavDropdown>
+              <TbDeviceGamepad2 className='mx-1' />
+              <NavDropdown title='Games' id='basic-nav-dropdown'>
+                <div className='d-flex align-items-center nav-link'>
+                  <Link to='/coin' className='d-flex align-items-center'>
+                    <BsCurrencyBitcoin className='mx-1' />
+                    <span className='theme__nav'>Coin</span>
+                  </Link>
+                </div>
+                <div className='d-flex align-items-center nav-link'>
+                  <Link to='/dice' className='d-flex align-items-center'>
+                    <BsDice6 className='mx-1' />
+                    <span className='theme__nav'>Dice</span>
+                  </Link>
+                </div>
+              </NavDropdown>
             </div>
 
             <div className='d-flex align-items-center nav-link'>
-              <div onClick={()=> dispatch(setDefaultModal({type: 'profile'}))} className='d-flex align-items-center'>
+              <div
+                onClick={() => dispatch(setDefaultModal({type: 'profile'}))}
+                className='d-flex align-items-center'
+              >
                 <FaUser className='mx-1' />
-                <span  className='theme__nav'>Profile</span>
+                <span className='theme__nav'>Profile</span>
               </div>
             </div>
 
             <div className='d-flex align-items-center nav-link'>
-              <div onClick={()=> dispatch(setDefaultModal({type: 'settings'}))} className='d-flex align-items-center'>
+              <div
+                onClick={() => dispatch(setDefaultModal({type: 'settings'}))}
+                className='d-flex align-items-center'
+              >
                 <FiSettings className='mx-1' />
                 <span className='theme__nav'>Settings</span>
               </div>
             </div>
-            
-          </Nav> 
+          </Nav>
           <Button className='btn' variant='outline-success'>
             Connect Wallet
           </Button>
