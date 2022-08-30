@@ -64,7 +64,7 @@ function Card() {
                 src='https://cdn.discordapp.com/attachments/940702729213448223/962354430693482566/RouletteDesktop.png'
               />
               <div className='figure__caption'>
-                <p>Lottery</p>
+                <p>Roulette</p>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ function Card() {
                 src='https://cdn.discordapp.com/attachments/940702729213448223/962354431272300574/CrashDesktop.png'
               />
               <div className='figure__caption'>
-                <p>Lottery</p>
+                <p>Crash</p>
               </div>
             </div>
           </div>
