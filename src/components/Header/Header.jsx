@@ -67,13 +67,13 @@ function Header() {
               <TbDeviceGamepad2 className='mx-1' />
               <NavDropdown title='Games' id='basic-nav-dropdown'>
                 <div className='d-flex align-items-center nav-link'>
-                  <Link to='/coin' className='d-flex align-items-center'>
+                  <Link to='/games/coin' className='d-flex align-items-center'>
                     <BsCurrencyBitcoin className='mx-1' />
                     <span className='theme__nav'>Coin</span>
                   </Link>
                 </div>
                 <div className='d-flex align-items-center nav-link'>
-                  <Link to='/dice' className='d-flex align-items-center'>
+                  <Link to='/games/dice' className='d-flex align-items-center'>
                     <BsDice6 className='mx-1' />
                     <span className='theme__nav'>Dice</span>
                   </Link>

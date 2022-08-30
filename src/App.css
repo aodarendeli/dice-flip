@@ -222,6 +222,7 @@ p {
 }
 .light {
   background-color: #c9d2d9 !important;
+  color: #000 !important;
   transition: all ease 1s;
 }
 .light h1,
@@ -237,6 +238,7 @@ span {
 }
 .dark {
   background-color: #151a1e !important;
+  color: #c9d2d9 !important;
   transition: all ease 1s;
 }
 .dark p,

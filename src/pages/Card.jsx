@@ -13,7 +13,7 @@ function Card() {
       </Row>
       <Row className='theme__row'>
         <Col lg={4} md={6} sm={6} xs={6} className='padding'>
-          <Link to='/coin'>
+          <Link to='/games/coin'>
             <div className='theme__box'>
               <div className='figure'>
                 <img
@@ -83,7 +83,7 @@ function Card() {
           </div>
         </Col>
         <Col lg={4} md={6} sm={6} xs={6} className='padding'>
-          <Link to='/dice'>
+          <Link to='/games/dice'>
             <div className='theme__box'>
               <div className='figure'>
                 <img

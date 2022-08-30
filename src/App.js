@@ -24,8 +24,8 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Dashboard />} />
-            <Route path='/dice' element={<RollDice />} />
-            <Route path='/coin' element={<CoinFlip />} />
+            <Route path='/games/dice' element={<RollDice />} />
+            <Route path='/games/coin' element={<CoinFlip />} />
           </Routes>
         </div>
       </Router>
