@@ -37,7 +37,7 @@ function Tables() {
                         fill='current'
                       ></path>
                     </svg>
-                    <p className='px-3'>CoinFlip</p>
+                    <td className='px-3'>CoinFlip</td>
                   </div>
                 </td>
                 <td>

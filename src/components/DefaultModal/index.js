@@ -5,11 +5,15 @@ import {BsCurrencyBitcoin, BsSun, BsMoon} from 'react-icons/bs'
 import c from './modal.module.css'
 import {setDefaultModal} from '../../Redux/Actions/element'
 import {setTheme} from '../../Redux/Actions/themeAction'
+import pingpong from '../../assets/sounds/pingPong.wav'
+import useSound from 'use-sound'
 
 import classcat from 'classcat'
 import {GoUnmute, GoMute} from 'react-icons/go'
 
 function DefaultModal() {
+  const [playPingPong] = useSound(pingpong)
+
   const dispatch = useDispatch()
   const [sound, setSound] = useState(localStorage.getItem('sound') || 'off')
   const [theme, setThemee] = useState(localStorage.getItem('theme') || 'dark')
@@ -41,6 +45,7 @@ function DefaultModal() {
   const soundOn = () => {
     localStorage.setItem('sound', 'on')
     setSound('on')
+    playPingPong()
   }
   const soundOff = () => {
     localStorage.setItem('sound', 'off')
@@ -50,11 +55,13 @@ function DefaultModal() {
     localStorage.setItem('theme', 'dark')
     setThemee('dark')
     dispatch(setTheme('dark'))
+    closeModal()
   }
   const themeLight = () => {
     localStorage.setItem('theme', 'light')
     setThemee('light')
     dispatch(setTheme('light'))
+    closeModal()
   }
   return (
     <div
