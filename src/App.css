@@ -221,10 +221,32 @@ p {
   width: 100% !important;
 }
 .light {
+  background-color: #c9d2d9 !important;
+  transition: all ease 1s;
+}
+.light h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   color: #000 !important;
-  background-color: #fff !important;
+  transition: all ease 1s;
 }
 .dark {
-  color: #fff !important;
-  background-color: #000 !important;
+  background-color: #151a1e !important;
+  transition: all ease 1s;
+}
+.dark h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: #c9d2d9 !important;
+  transition: all ease 1s;
 }
