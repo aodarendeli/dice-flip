@@ -1,9 +1,24 @@
 import React from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
+import {useSelector} from 'react-redux'
+import {useEffect} from 'react'
+import {useState} from 'react'
 
 function Sponsor() {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark')
+  const themeVal = useSelector((selector) => selector?.themeReducer?.value)
+  useEffect(() => {
+    setTheme(localStorage.getItem('theme'))
+  }, [localStorage.getItem('theme')])
+  useEffect(() => {
+    console.log('temamız', themeVal)
+  }, [themeVal])
+
   return (
-    <Container fluid className='theme__sponsor text-center pt-3 pb-3'>
+    <Container
+      fluid
+      className={'theme__sponsor text-center pt-3 pb-3' + ' ' + theme}
+    >
       <Row>
         <Col className=' d-flex justify-content-between align-items-center'>
           <svg

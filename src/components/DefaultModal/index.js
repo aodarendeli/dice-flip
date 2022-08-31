@@ -280,10 +280,10 @@ function DefaultModal() {
               <div className='container mt-2'>
                 <div className='row'>
                   <div className='col-6' onClick={toggleSound}>
-                    <h3>{'Sound: ' + localStorage.getItem('sound')}</h3>
+                    <h3>{'Sound'}</h3>
                   </div>
                   <div className='col-6'>
-                    <h3>{'Theme: ' + localStorage.getItem('theme')}</h3>
+                    <h3>{'Theme'}</h3>
                   </div>
                 </div>
               </div>

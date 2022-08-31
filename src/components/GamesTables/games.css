@@ -1,0 +1,17 @@
+.games__navbar ul a {
+  text-decoration: none;
+  height: 30px;
+  color: white;
+  font-weight: 700;
+}
+.games__navbar ul a li {
+  list-style: none;
+}
+
+.games__navbar ul a:hover {
+  border-bottom: 1px solid #ffa463;
+  color: #ffa463;
+}
+.current-location {
+  color: #ffa463;
+}

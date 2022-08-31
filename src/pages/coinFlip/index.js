@@ -21,6 +21,7 @@ import Tables from '../../components/Tables'
 import Sponsor from '../../components/Sponsor'
 import Footer from '../../components/Footer'
 import SpecialCard from '../../components/SpecialCard'
+import GamesTables from '../../components/GamesTables'
 
 export default () => {
   const [winAmountValue, setWinAmountValue] = useState(0)
@@ -172,7 +173,8 @@ export default () => {
   }
   return (
     <>
-      <div className={c.con + ' pt-5 mt-3'}>
+      <GamesTables />
+      <div className={c.con + ' mt-5'}>
         <div className={c.gameCon}>
           <div className={c.mobileDice}>
             <div className={c.fix + ' ' + c.mobilecoin + ' d-flex'}>

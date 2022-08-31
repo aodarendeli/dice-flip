@@ -225,7 +225,7 @@
   justify-content: center;
 }
 .title2 {
-  color: #fff !important;
+  color: #fff !important !important;
   font-size: 18px;
 }
 @media (min-width: 600px) {

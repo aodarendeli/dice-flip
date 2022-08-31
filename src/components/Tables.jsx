@@ -81,7 +81,7 @@ function Tables() {
                       <circle cx='8' cy='8' r='2' fill='current'></circle>
                       <circle cx='16' cy='16' r='2' fill='current'></circle>
                     </svg>
-                    <p className='px-3'>Diece</p>
+                    <td className='px-3'>Dice</td>
                   </div>
                 </td>
                 <td>
@@ -125,7 +125,7 @@ function Tables() {
                       <circle cx='8' cy='8' r='2' fill='current'></circle>
                       <circle cx='16' cy='16' r='2' fill='current'></circle>
                     </svg>
-                    <p className='px-3'>Diece</p>
+                    <td className='px-3'>Dice</td>
                   </div>
                 </td>
                 <td>

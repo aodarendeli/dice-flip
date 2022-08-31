@@ -15,6 +15,7 @@ import Tables from '../../components/Tables'
 import Sponsor from '../../components/Sponsor'
 import Footer from '../../components/Footer'
 import SpecialCard from '../../components/SpecialCard'
+import GamesTables from '../../components/GamesTables'
 
 export default () => {
   const [pendingValue, setPendingValue] = useState(0)
@@ -70,7 +71,8 @@ export default () => {
   }, [diceSelections])
   return (
     <>
-      <div className={c.con + ' mt-5 pt-5'}>
+      <GamesTables />
+      <div className={c.con + ' mt-5'}>
         <div className={c.gameCon}>
           <div className={c.mobileDice}>
             <div className='d-flex row mx-auto'>
