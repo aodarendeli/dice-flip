@@ -111,10 +111,13 @@ export default () => {
             setErrorModal({
               title: 'YOU LOSE',
               type: 'coinFlip',
-              message: `You choose the wrong order! \n Order is ${result.map(
-                (ans) => `${ans.res} `
-              )} But your choice was: ${choices.map((ans) => `${ans} `)}`,
+              // message: `You choose the wrong order! \n Order is ${result.map(
+              //   (ans) => `${ans.res} `
+              // )} But your choice was: ${choices.map((ans) => `${ans} `)}`,
+              message: 'You picked the wrong order!',
               button: 'Close',
+              pickedChoice: choices,
+              answers: result,
             })
           )
         } else {
