@@ -15,6 +15,13 @@ import {setDefaultModal} from '../../Redux/Actions/element'
 
 function Header() {
   const dispatch = useDispatch()
+  const SoonTag = () => {
+    return (
+      <div className='soon'>
+        <p className='noselect soonT'>SOON</p>
+      </div>
+    )
+  }
 
   return (
     // <header className="d-flex col justify-content-end">
@@ -77,6 +84,27 @@ function Header() {
                     <BsDice6 className='mx-1' />
                     <span className='theme__nav'>Dice</span>
                   </Link>
+                </div>
+                <div className='d-flex align-items-center nav-link card__div'>
+                  <Link to='/games/dice' className='d-flex align-items-center'>
+                    <BsDice6 className='mx-1' />
+                    <span className='theme__nav'>Lottery</span>
+                  </Link>
+                  <SoonTag />
+                </div>
+                <div className='d-flex align-items-center nav-link card__div'>
+                  <Link to='/games/dice' className='d-flex align-items-center'>
+                    <BsDice6 className='mx-1' />
+                    <span className='theme__nav'>Roulette</span>
+                  </Link>
+                  <SoonTag />
+                </div>
+                <div className='d-flex align-items-center nav-link card__div'>
+                  <Link to='/games/dice' className='d-flex align-items-center'>
+                    <BsDice6 className='mx-1' />
+                    <span className='theme__nav'>Crash</span>
+                  </Link>
+                  <SoonTag />
                 </div>
               </NavDropdown>
             </div>

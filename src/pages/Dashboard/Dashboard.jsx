@@ -19,7 +19,9 @@ function Dashboard() {
   }, [themeVal])
 
   return (
-    <div className={theme}>
+    <div
+    //  className={theme}
+    >
       <Marque />
       <Card />
       <Tables />

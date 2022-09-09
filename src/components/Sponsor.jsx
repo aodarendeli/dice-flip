@@ -17,7 +17,10 @@ function Sponsor() {
   return (
     <Container
       fluid
-      className={'theme__sponsor text-center pt-3 pb-3' + ' ' + theme}
+      className={
+        'theme__sponsor text-center pt-3 pb-3' + ' '
+        // + theme
+      }
     >
       <Row>
         <Col className=' d-flex justify-content-between align-items-center'>
